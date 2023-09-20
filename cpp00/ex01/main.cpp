@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 13:56:18 by djanusz           #+#    #+#             */
-/*   Updated: 2023/09/20 11:38:45 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/09/20 14:56:44 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,6 @@ std::string	conform(std::string str)
 
 void	PhoneBook::search(void)
 {
-	std::string	input;
-
 	std::cout << "┌──────────┬──────────┬──────────┬──────────┐" << std::endl;
 	std::cout << "│     Index│First name│ Last name│  Nickname│" << std::endl;
 	std::cout << "├──────────┼──────────┼──────────┼──────────┤" << std::endl;
@@ -82,14 +80,14 @@ void	PhoneBook::search(void)
 		std::cout << "│" << std::endl;
 	}
 	std::cout << "└──────────┴──────────┴──────────┴──────────┘" << std::endl;
-	input = ft_getline("[1-8] : ");
-	if (!std::cin.eof() && input.size() == 1 && '1' <= input[0] && input[0] <= '8')
+	int	input = std::stoi(ft_getline("[1-8] : "));
+	if (!std::cin.eof() && 1 <= input && input <= 8)
 	{
-		std::cout << "First name : " << this->_contactlist[(input[0] - 1) - '0'].get_firstname() << std::endl;
-		std::cout << "Last name : " << this->_contactlist[(input[0] - 1) - '0'].get_lastname() << std::endl;
-		std::cout << "Nickname : " << this->_contactlist[(input[0] - 1) - '0'].get_nickname() << std::endl;
-		std::cout << "Phone number : " << this->_contactlist[(input[0] - 1) - '0'].get_phone() << std::endl;
-		std::cout << "Darkest secret : " << this->_contactlist[(input[0] - 1) - '0'].get_secret() << std::endl;
+		std::cout << "First name : " << this->_contactlist[input - 1].get_firstname() << std::endl;
+		std::cout << "Last name : " << this->_contactlist[input - 1].get_lastname() << std::endl;
+		std::cout << "Nickname : " << this->_contactlist[input - 1].get_nickname() << std::endl;
+		std::cout << "Phone number : " << this->_contactlist[input - 1].get_phone() << std::endl;
+		std::cout << "Darkest secret : " << this->_contactlist[input - 1].get_secret() << std::endl;
 	}
 	return;
 }
