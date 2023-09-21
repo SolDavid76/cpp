@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.class.hpp                                  :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 14:14:11 by djanusz           #+#    #+#             */
-/*   Updated: 2023/09/18 14:48:24 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/09/21 15:19:51 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,15 @@ class Contact
 		~Contact(void);
 
 		std::string	get_firstname(void);
-		void		set_firstname(std::string str);
 		std::string	get_lastname(void);
-		void		set_lastname(std::string str);
 		std::string	get_nickname(void);
-		void		set_nickname(std::string str);
 		std::string	get_phone(void);
-		void		set_phone(std::string str);
 		std::string	get_secret(void);
+
+		void		set_firstname(std::string str);
+		void		set_lastname(std::string str);
+		void		set_nickname(std::string str);
+		void		set_phone(std::string str);
 		void		set_secret(std::string str);
 
 		void		fill_infos(void);
