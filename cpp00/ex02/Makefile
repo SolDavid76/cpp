@@ -7,15 +7,15 @@ NAME	=	a.out
 
 CC		=	c++
 
-CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g
+CCFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 all: 	${NAME}
 
-.c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+.cpp.o:
+	${CC} ${CCFLAGS} -c $< -o $@
 
 $(NAME): $(OBJS)
-	${CC} ${CFLAGS} ${OBJS} -o ${NAME}
+	${CC} ${CCFLAGS} ${OBJS} -o ${NAME}
 
 clean:
 	rm -f ${OBJS}

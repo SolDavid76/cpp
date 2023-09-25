@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 13:56:18 by djanusz           #+#    #+#             */
-/*   Updated: 2023/09/20 14:56:44 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/09/25 15:35:41 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,14 @@ std::string	conform(std::string str)
 	return (res);
 }
 
+int	ft_stoi(std::string str)
+{
+	int res = 0;
+	if (str.length() == 1 && '1' <= str[0] && str[0] <= '8')
+		res = str[0] - 48;
+	return (res - 1);
+}
+
 void	PhoneBook::search(void)
 {
 	std::cout << "┌──────────┬──────────┬──────────┬──────────┐" << std::endl;
@@ -80,15 +88,17 @@ void	PhoneBook::search(void)
 		std::cout << "│" << std::endl;
 	}
 	std::cout << "└──────────┴──────────┴──────────┴──────────┘" << std::endl;
-	int	input = std::stoi(ft_getline("[1-8] : "));
-	if (!std::cin.eof() && 1 <= input && input <= 8)
+	int	input = ft_stoi(ft_getline("[1-8]: "));
+	if (!std::cin.eof() &&  0 <= input && input <= 7)
 	{
-		std::cout << "First name : " << this->_contactlist[input - 1].get_firstname() << std::endl;
-		std::cout << "Last name : " << this->_contactlist[input - 1].get_lastname() << std::endl;
-		std::cout << "Nickname : " << this->_contactlist[input - 1].get_nickname() << std::endl;
-		std::cout << "Phone number : " << this->_contactlist[input - 1].get_phone() << std::endl;
-		std::cout << "Darkest secret : " << this->_contactlist[input - 1].get_secret() << std::endl;
+		std::cout << "First name: " << this->_contactlist[input].get_firstname() << std::endl;
+		std::cout << "Last name: " << this->_contactlist[input].get_lastname() << std::endl;
+		std::cout << "Nickname: " << this->_contactlist[input].get_nickname() << std::endl;
+		std::cout << "Phone number: " << this->_contactlist[input].get_phone() << std::endl;
+		std::cout << "Darkest secret: " << this->_contactlist[input].get_secret() << std::endl;
 	}
+	else
+		std::cout << "[ERROR]: Wrong input" << std::endl;
 	return;
 }
 
@@ -102,12 +112,12 @@ int	main(void)
 
 	while (42)
 	{
-		input = ft_getline("[ADD/SEARCH/EXIT] : ");
-		if (!std::cin.eof() && !input.compare("ADD"))
+		input = ft_getline("[ADD/SEARCH/EXIT]: ");
+		if (!std::cin.eof() && input == "ADD")
 			book.add();
-		else if (!std::cin.eof() && !input.compare("SEARCH"))
+		else if (!std::cin.eof() && input == "SEARCH")
 			book.search();
-		if (std::cin.eof() || !input.compare("EXIT"))
+		if (std::cin.eof() || input == "EXIT")
 			return (0);
 	}
 }

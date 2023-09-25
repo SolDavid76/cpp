@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:52:57 by djanusz           #+#    #+#             */
-/*   Updated: 2023/09/20 12:18:06 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/09/22 14:20:05 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,6 @@ int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
 int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
-
-// int	main(void)
-// {
-// 	Account	acc0(42);
-// 	Account	acc1(54);
-// 	Account	acc2(957);
-// 	Account	acc3(432);
-// 	Account	acc4(1234);
-// 	Account	acc5(0);
-// 	Account	acc6(754);
-// 	Account	acc7(16576);
-
-// 	acc0.displayStatus();
-// }
 
 int	Account::getNbWithdrawals(void)
 {
@@ -48,7 +34,7 @@ Account::Account(int initial_deposit)
 	_nbDeposits = 0;
 	_nbWithdrawals = 0;
 	_displayTimestamp();
-	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";created" << std::endl;
+	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";created:" << std::endl;
 }
 
 Account::~Account(void)
@@ -103,7 +89,7 @@ bool	Account::makeWithdrawal(int withdrawal)
 	_totalNbWithdrawals++;
 	_amount -= withdrawal;
 	_totalAmount -= withdrawal;
-	std::cout << withdrawal << ";amount:" << _amount << ";nb_withdrawals" << _nbWithdrawals << std::endl;
+	std::cout << withdrawal << ";amount:" << _amount << ";nb_withdrawals:" << _nbWithdrawals << std::endl;
 	return (true);
 }
 
