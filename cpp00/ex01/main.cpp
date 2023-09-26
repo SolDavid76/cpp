@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 13:56:18 by djanusz           #+#    #+#             */
-/*   Updated: 2023/09/26 11:38:24 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/09/26 14:08:32 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	Contact::fill_infos(void)
 
 void	PhoneBook::add(void)
 {
+	static int nbcontact = 0;
+
 	if (nbcontact < 8)
 		this->_contactlist[nbcontact++].fill_infos();
 	else
@@ -94,8 +96,6 @@ void	PhoneBook::search(void)
 		std::cout << "[ERROR]: Wrong input" << std::endl;
 	return;
 }
-
-int	PhoneBook::nbcontact = 0;
 
 int	main(void)
 {

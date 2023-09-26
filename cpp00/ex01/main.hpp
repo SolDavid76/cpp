@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 14:16:55 by djanusz           #+#    #+#             */
-/*   Updated: 2023/09/26 11:39:42 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/09/26 14:04:46 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define MAIN_HPP
 
 # include <string>
-# include <iostream>
 # include <iomanip>
+# include <iostream>
 # include "Contact.hpp"
 # include "PhoneBook.hpp"
 

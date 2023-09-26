@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 13:56:05 by djanusz           #+#    #+#             */
-/*   Updated: 2023/09/18 14:49:36 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/09/26 14:09:36 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ class PhoneBook
 	public:
 		PhoneBook(void);
 		~PhoneBook(void);
-
-		static int	nbcontact;
 
 		void		add(void);
 		void		search(void);
