@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 13:56:18 by djanusz           #+#    #+#             */
-/*   Updated: 2023/09/25 15:35:41 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/09/26 11:38:24 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,13 @@ std::string	conform(std::string str)
 {
 	std::string	res;
 
-	res = "│";
-	if (str.length() <= 10)
+	if (str.length() > 10)
 	{
-		for (int i = 0; i < 10 - str.length(); i++)
-			res += " ";
-		res += str;
-	}
-	else
-	{
-		for (int i = 0; i < 9; i++)
-			res += str[i];
+		res = str.substr(0, 9);
 		res += ".";
+		return (res);
 	}
-	return (res);
+	return (str);
 }
 
 int	ft_stoi(std::string str)
@@ -81,10 +74,10 @@ void	PhoneBook::search(void)
 	std::cout << "├──────────┼──────────┼──────────┼──────────┤" << std::endl;
 	for (int i = 0; i < 8; i++)
 	{
-		std::cout << conform(std::to_string(i + 1));
-		std::cout << conform(this->_contactlist[i].get_firstname());
-		std::cout << conform(this->_contactlist[i].get_lastname());
-		std::cout << conform(this->_contactlist[i].get_nickname());
+		std::cout << "│" << std::setw(10) << i + 1;
+		std::cout << "│" << std::setw(10) << conform(this->_contactlist[i].get_firstname());
+		std::cout << "│" << std::setw(10) << conform(this->_contactlist[i].get_lastname());
+		std::cout << "│" << std::setw(10) << conform(this->_contactlist[i].get_nickname());
 		std::cout << "│" << std::endl;
 	}
 	std::cout << "└──────────┴──────────┴──────────┴──────────┘" << std::endl;
@@ -108,7 +101,6 @@ int	main(void)
 {
 	PhoneBook	book;
 	std::string	input;
-	int			i = 0;
 
 	while (42)
 	{
