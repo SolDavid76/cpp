@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 17:05:49 by djanusz           #+#    #+#             */
-/*   Updated: 2023/09/22 13:36:39 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/09/28 16:17:53 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 int	main(void)
 {
-	Zombie	bar("bar");
+	Zombie	bar;
 	Zombie	*foo = newZombie("foo");
 
+	bar.set_name("bar");
 	bar.announce();
 	foo->announce();
 	randomChump("bob");
