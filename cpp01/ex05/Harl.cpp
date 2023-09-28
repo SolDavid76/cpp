@@ -49,5 +49,5 @@ void Harl::error(void)
 
 void Harl::confusion(void)
 {
-	std::cout << "[CONFUSED]: I don't know what to complain about" << std::endl;
+	std::cout << "[CONFUSED]: Probably complaining about insignificant problems..." << std::endl;
 }

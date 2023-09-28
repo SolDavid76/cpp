@@ -18,31 +18,41 @@ int lvl_to_int(std::string level)
 		if (levels[i] == level)
 			return (i);
 	}
-	return (4);
+	return (-1);
 }
 
 void Harl::complain(std::string level)
 {
-	void (Harl::*functptr[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error, &Harl::confusion};
-	(this->*functptr[lvl_to_int(level)])();
+	switch (lvl_to_int(level))
+	{
+	case (0):
+		this->debug();
+	case (1):
+		this->info();
+	case (2):
+		this->warning();
+	case (3):
+		this->error();
+		break;
+	default:
+		this->confusion();
+		break;
+	}
 }
 
 void Harl::debug(void)
 {
 	std::cout << "[DEBUG]: I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do !" << std::endl;
-	this->info();
 }
 
 void Harl::info(void)
 {
 	std::cout << "[INFO]: I cannot believe adding extra bacon costs more money. You didn’t put enough bacon in my burger ! If you did, I wouldn’t be asking for more !" << std::endl;
-	this->warning();
 }
 
 void Harl::warning(void)
 {
 	std::cout << "[WARNING]: I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month." << std::endl;
-	this->error();
 }
 
 void Harl::error(void)
@@ -52,5 +62,5 @@ void Harl::error(void)
 
 void Harl::confusion(void)
 {
-	std::cout << "[CONFUSED]: I don't know what to complain about" << std::endl;
+	std::cout << "[CONFUSED]: Probably complaining about insignificant problems..." << std::endl;
 }
