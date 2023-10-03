@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 13:40:18 by djanusz           #+#    #+#             */
-/*   Updated: 2023/09/28 14:51:48 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/10/03 15:26:44 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void ft_replace(std::string file, std::string s1, std::string s2)
 
 int main(int ac, char** av)
 {
-	if (ac == 4)
+	if (ac == 4 && av[2][0] && av[3][0])
 		ft_replace(av[1], av[2], av[3]);
 	else
 		std::cout << "Wrong number of args" << std::endl;
