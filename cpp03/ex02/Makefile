@@ -1,5 +1,6 @@
 SRCS	=	main.cpp\
 			ClapTrap.cpp\
+			FragTrap.cpp\
 
 OBJS	=	${SRCS:.cpp=.o}
 

@@ -6,16 +6,16 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 15:11:35 by djanusz           #+#    #+#             */
-/*   Updated: 2023/10/09 11:46:33 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/10/10 15:27:51 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
 	ClapTrap a;
-	ScavTrap b("bob");
+	FragTrap b("bob");
 
 	a.attack("GOLEMS");
 	a.takeDamage(6);
@@ -25,5 +25,5 @@ int main(void)
 	b.attack("GROMP");
 	b.takeDamage(6);
 	b.beRepaired(3);
-	b.guardGate();
+	b.highFivesGuys();
 }

@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:34:59 by djanusz           #+#    #+#             */
-/*   Updated: 2023/10/09 12:40:52 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/10/13 10:53:55 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ class FragTrap: public ClapTrap
 		FragTrap& operator=(FragTrap const& src);
 
 		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
 		void highFivesGuys(void);
 };
 

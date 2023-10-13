@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:09:31 by djanusz           #+#    #+#             */
-/*   Updated: 2023/10/09 11:44:42 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/10/13 14:45:25 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 ScavTrap::ScavTrap(void): ClapTrap()
 {
-	std::cout << "[ScavTrap]: Default constructor called" << std::endl;
 	this->_name = "ScavTrap";
 	this->_health = 100;
 	this->_energy = 50;
 	this->_damage = 20;
+	std::cout << "[ScavTrap]: " << this->_name << " Default constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name): ClapTrap()
+ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
-	std::cout << "[ScavTrap]: Parameter constructor called" << std::endl;
 	this->_name = name;
 	this->_health = 100;
 	this->_energy = 50;
 	this->_damage = 20;
+	std::cout << "[ScavTrap]: " << this->_name << " Parameter constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& src)
@@ -38,7 +38,7 @@ ScavTrap::ScavTrap(const ScavTrap& src)
 
 ScavTrap::~ScavTrap(void)
 {
-	std::cout << "[ScavTrap]: Destructor called" << std::endl;
+	std::cout << "[ScavTrap]: " << this->_name << " Destructor called" << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(ScavTrap const& src)
@@ -57,35 +57,14 @@ ScavTrap& ScavTrap::operator=(ScavTrap const& src)
 
 void ScavTrap::attack(const std::string& target)
 {
+	this->_energy--;
 	if (this->_health > 0 && this->_energy > 0)
 		std::cout << "[ScavTrap]: " << this->_name << " attacks " << target << " causing " << this->_damage << " point of damage!" << std::endl;
 	else
 		std::cout << "[ScavTrap]: " << this->_name << " has no longer enough health or energy to attack!" << std::endl;
 }
 
-void ScavTrap::takeDamage(unsigned int amount)
-{
-	if (this->_health > 0)
-	{
-		this->_health -= amount;
-		std::cout << "[ScavTrap]: " << this->_name << " has taken " << amount << " point of damage, he have " << this->_health << " remaning health!" << std::endl;
-	}
-	else
-		std::cout << "[ScavTrap]: " << this->_name << " is already dead!" << std::endl;
-}
-
-void ScavTrap::beRepaired(unsigned int amount)
-{
-	if (this->_health > 0 && this->_energy > 0)
-	{
-		this->_health += amount;
-		std::cout << "[ScavTrap]: " << this->_name << " has been repaired of " << amount << " health point, he have " << this->_health << " remaning health!" << std::endl;
-	}
-	else
-		std::cout << "[ScavTrap]: " << this->_name << " has no longer enough health or energy to be repaired!" << std::endl;
-}
-
 void ScavTrap::guardGate(void)
 {
-	std::cout << "[ScavTrap]: " << this->_name << "switch to gate keeper mode" << std::endl;
+	std::cout << "[ScavTrap]: " << this->_name << " switch to gate keeper mode" << std::endl;
 }
