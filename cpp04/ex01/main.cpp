@@ -15,21 +15,50 @@
 
 int main(void)
 {
-	std::cout << "-----[Animal tests]-----" << std::endl;
-	const Animal* meta = new Animal();
-	const Animal* i = new Dog();
-	const Animal* j = new Cat();
+	std::cout << "-----[Animal array example]-----" << std::endl;
+	Animal* animals[4];
+	for (int i = 0; i < 4; i++)
+	{
+		if (i % 2)
+			animals[i] = new Dog();
+		else
+			animals[i] = new Cat();
+	}
+	for (int i = 0; i < 4; i++)
+		animals[i]->makeSound();
+	for (int i = 0; i < 4; i++)
+		delete animals[i];
+	std::cout << "-----[Brain deep copy test]-----" << std::endl;
+	Cat riri;
+	Dog fifi;
 
-	std::cout << "Type of meta " << meta->get_type() << std::endl;
-	std::cout << "Type of i = " << i->get_type() << std::endl;
-	std::cout << "Type of j = " << j->get_type() << std::endl;
-	meta->makeSound();
-	i->makeSound();
-	j->makeSound();
+	riri.get_brain()->set_ideas("Meow... *Wana eat*", 0);
+	riri.get_brain()->set_ideas("Meow... *Wana sleep*", 1);
+	riri.get_brain()->set_ideas("Meow... *Wana eat*", 2);
+	riri.get_brain()->set_ideas("Meow... *Wana sleep*", 3);
+	riri.get_brain()->set_ideas("Meow... *Wana eat*", 4);
+	riri.get_brain()->set_ideas("Meow... *Wana play*", 5);
+	riri.print_ideas();
 
-	delete meta;
-	delete i;
-	delete j;
+	Cat riri_copy(riri);
+	riri_copy.get_brain()->set_ideas("Meow... *Wana sleep*", 5);
+	riri.print_ideas();
+	riri_copy.print_ideas();
 
 	return (0);
 }
+
+// const Animal* meta = new Animal();
+// const Animal* i = new Dog();
+// const Animal* j = new Cat();
+
+// std::cout << "Type of meta " << meta->get_type() << std::endl;
+// std::cout << "Type of i = " << i->get_type() << std::endl;
+// std::cout << "Type of j = " << j->get_type() << std::endl;
+// meta->makeSound();
+// i->makeSound();
+// j->makeSound();
+
+// delete meta;
+// delete i;
+// delete j;

@@ -14,6 +14,7 @@
 # define CAT_HPP
 
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class Cat: public Animal
 {
@@ -24,6 +25,10 @@ class Cat: public Animal
 		~Cat(void);
 
 		void makeSound(void) const;
+		Brain* get_brain(void) const;
+		void print_ideas(void) const;
+	private:
+		Brain* _brain;
 };
 
 #endif

@@ -28,7 +28,7 @@ Brain& Brain::operator=(Brain const& src)
 	std::cout << "[Brain]: Copy assignement Brain operator called" << std::endl;
 	if (this != &src)
 	{
-		for (int i = 0; i < 99; i++)
+		for (int i = 0; i < 100; i++)
 			this->_ideas[i] = src._ideas[i];
 	}
 	return (*this);

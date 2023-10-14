@@ -35,14 +35,18 @@ int main(void)
 	std::cout << "-----[WrongAnimal tests]-----" << std::endl;
 	const WrongAnimal* wrongmeta = new WrongAnimal();
 	const WrongAnimal* wrongi = new WrongCat();
+	const WrongCat* wrongj = new WrongCat();
 
 	std::cout << "Type of wrongmeta " << wrongmeta->get_type() << std::endl;
 	std::cout << "Type of wrongi = " << wrongi->get_type() << std::endl;
+	std::cout << "Type of wrongj = " << wrongj->get_type() << std::endl;
 	wrongmeta->makeSound();
 	wrongi->makeSound();
+	wrongj->makeSound();
 
 	delete wrongmeta;
 	delete wrongi;
+	delete wrongj;
 
 	return (0);
 }
