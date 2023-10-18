@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/13 18:10:51 by djanusz           #+#    #+#             */
-/*   Updated: 2023/10/17 12:06:31 by djanusz          ###   ########.fr       */
+/*   Created: 2023/10/13 16:51:30 by djanusz           #+#    #+#             */
+/*   Updated: 2023/10/17 12:12:00 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include <string>
+# include <iostream>
 
-class Dog: public Animal
+class Animal
 {
 	public:
-		Dog(void);
-		Dog(const Dog& src);
-		Dog& operator=(Dog const& src);
-		~Dog(void);
+		Animal(void);
+		Animal(const Animal& src);
+		Animal& operator=(Animal const& src);
+		virtual ~Animal(void);
 
-		void makeSound(void) const;
-		Brain* get_brain(void) const;
-		void print_ideas(void) const;
-	private:
-		Brain* _brain;
+		virtual void makeSound(void)const = 0;
+		std::string get_type(void) const;
+	protected:
+		std::string _type;
 };
 
 #endif
