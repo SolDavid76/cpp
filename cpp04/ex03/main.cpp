@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 14:19:00 by djanusz           #+#    #+#             */
-/*   Updated: 2023/10/18 17:32:38 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/10/19 17:36:08 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,20 @@ int main(void)
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
 
 	ICharacter* bob = new Character("bob");
 
 	me->use(0, *bob);
 	me->use(1, *bob);
+	me->use(2, *bob);
 	me->use(3, *bob);
 	me->use(5, *bob);
+	me->unequip(2);
+	me->unequip(3);
+	me->use(2, *bob);
+	delete tmp;
 
 	std::cout << "--------------------------" << std::endl;
 

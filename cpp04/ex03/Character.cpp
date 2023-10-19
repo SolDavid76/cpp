@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:32:17 by djanusz           #+#    #+#             */
-/*   Updated: 2023/10/18 17:39:32 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/10/19 17:37:01 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void Character::equip(AMateria* m)
 	{
 		if (this->_inventory[i] == NULL)
 		{
-			std::cout << "[equip]: equiping " << m->get_type() << " at the " << i << " slot" << std::endl;
+			std::cout << "[equip]: equiping " << m->get_type() << " at the slot[" << i << "]" << std::endl;
 			this->_inventory[i] = m;
 			return;
 		}
@@ -85,9 +85,9 @@ void Character::unequip(int idx)
 	if (0 <= idx && idx <= 3)
 	{
 		if (this->_inventory[idx])
-			std::cout << "[unequip]: droping " << this->_inventory[idx]->get_type() << " at the " << idx << " slot" << std::endl;
+			std::cout << "[unequip]: droping " << this->_inventory[idx]->get_type() << " from the slot[" << idx << "]" << std::endl;
 		else
-			std::cout << "[unequip]: nothing to drop at the " << idx << " slot" << std::endl;
+			std::cout << "[unequip]: nothing to drop from the slot[" << idx << "]" << std::endl;
 		this->_inventory[idx] = NULL;
 	}
 	else
@@ -101,7 +101,7 @@ void Character::use(int idx, ICharacter& target)
 		if (this->_inventory[idx])
 			this->_inventory[idx]->use(target);
 		else
-			std::cout << "[use]: nothing to use at the " << idx << " slot" << std::endl;
+			std::cout << "[use]: nothing to use from the slot[" << idx << "]" << std::endl;
 	}
 	else
 		std::cout << "[use]: invalid index!" << std::endl;
