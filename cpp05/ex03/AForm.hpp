@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 00:16:14 by djanusz           #+#    #+#             */
-/*   Updated: 2023/10/27 15:54:26 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/10/30 12:33:35 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ class AForm
 	private:
 		std::string const _name;
 		bool _signed;
-		int _gradeToSign;
-		int _gradeToExecute;
+		int const _gradeToSign;
+		int const _gradeToExecute;
 };
 
 std::ostream& operator<<(std::ostream& o, AForm const& src);

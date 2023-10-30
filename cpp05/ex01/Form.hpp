@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 00:16:57 by djanusz           #+#    #+#             */
-/*   Updated: 2023/10/27 00:16:58 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/10/30 12:23:07 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ class Form
 	private:
 		std::string const _name;
 		bool _signed;
-		int _gradeToSign;
-		int _gradeToExecute;
+		int const _gradeToSign;
+		int const _gradeToExecute;
 };
 
 std::ostream& operator<<(std::ostream& o, Form const& src);
