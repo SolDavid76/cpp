@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 00:16:57 by djanusz           #+#    #+#             */
-/*   Updated: 2023/10/30 12:23:07 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/10/30 15:14:50 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ class Form
 
 		void beSigned(Bureaucrat Bureaucrat);
 
-		class GradeTooHightException: std::exception
+		class GradeTooHightException: public std::exception
 		{
 			public:
 				char const* what() const throw() { return ("Grade too hight"); }
 		};
-		class GradeTooLowException: std::exception
+		class GradeTooLowException: public std::exception
 		{
 			public:
 				char const* what() const throw() { return ("Grade too low"); }

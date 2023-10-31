@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 00:16:14 by djanusz           #+#    #+#             */
-/*   Updated: 2023/10/30 12:33:17 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/10/30 15:15:39 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,17 @@ class AForm
 
 		virtual void execute(Bureaucrat const& executor) const = 0;
 
-		class NotSignedException: std::exception
+		class NotSignedException: public std::exception
 		{
 			public:
 				char const* what() const throw() { return ("Form is not signed"); }
 		};
-		class GradeTooHightException: std::exception
+		class GradeTooHightException: public std::exception
 		{
 			public:
 				char const* what() const throw() { return ("Grade too hight"); }
 		};
-		class GradeTooLowException: std::exception
+		class GradeTooLowException: public std::exception
 		{
 			public:
 				char const* what() const throw() { return ("Grade too low"); }
