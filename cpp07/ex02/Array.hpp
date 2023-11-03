@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:12:37 by djanusz           #+#    #+#             */
-/*   Updated: 2023/11/03 15:53:57 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/11/03 16:04:49 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ template<typename T>
 T& Array<T>::operator[](unsigned int index)
 {
 	if (index > this->size() - 1)
-		throw std::exception();
+		throw std::out_of_range("out of range");
 	else
 		return (this->_Array[index]);
 }
