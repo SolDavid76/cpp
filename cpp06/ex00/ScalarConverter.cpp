@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 16:11:02 by djanusz           #+#    #+#             */
-/*   Updated: 2023/10/27 20:29:16 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/11/03 13:02:22 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ ScalarConverter::~ScalarConverter(void)
 
 bool isChar(std::string input)
 {
-	if (input.length() != 1 || input.at(0) < 0)
-		return (false);
-	return (true);
+	if (input.length() == 1 && !isdigit(input.at(0)))
+		return (true);
+	return (false);
 }
 
 bool isInt(std::string input)
@@ -91,9 +91,9 @@ bool isDouble(std::string input)
 	return (true);
 }
 
-bool isIrrational(std::string input)
+bool isIrrational(double input)
 {
-	if (input == "nanf" || input == "+inff" || input == "-inff" || input == "nan" || input == "+inf" || input == "-inf")
+	if (std::isnan(input) || std::isinf(input))
 		return (true);
 	return (false);
 }
@@ -113,97 +113,40 @@ e_type get_type(std::string input)
 
 void printChar(char c)
 {
-	std::cout << "input type was detected as char" << std::endl;
 	if (32 <= c && c <= 126)
 		std::cout << "char: '" << c << "'" << std::endl;
 	else
 		std::cout << "char: Non displayable" << std::endl;
-	std::cout << "int: " << static_cast<int>(c) << std::endl;
-	std::cout << "float: " << static_cast<float>(c) << std::endl;
-	std::cout << "double: " << static_cast<double>(c) << std::endl;
 }
 
 void printInt(long int nbr)
 {
-	std::cout << "input type was detected as int" << std::endl;
-	if (32 <= nbr && nbr <= 126)
-		std::cout << "char: '" << static_cast<char>(nbr) << "'" << std::endl;
-	else
-		std::cout << "char: Non displayable" << std::endl;
 	if (std::numeric_limits<int>::min() <= nbr && nbr <= std::numeric_limits<int>::max())
 		std::cout << "int: " << nbr << std::endl;
 	else
 		std::cout << "int: impossible" << std::endl;
-	if (std::numeric_limits<float>::min() <= nbr && nbr <= std::numeric_limits<float>::max())
-		std::cout << "float: " << static_cast<float>(nbr) << ".0f" << std::endl;
-	else
-		std::cout << "float: impossible" << std::endl;
-	if (std::numeric_limits<double>::min() <= nbr && nbr <= std::numeric_limits<double>::max())
-		std::cout << "double: " << static_cast<double>(nbr) << ".0" << std::endl;
-	else
-		std::cout << "double: impossible" << std::endl;
 }
 
-void printFloat(float nbr)
+void printIrrational(double nbr)
 {
-	std::cout << "input type was detected as float" << std::endl;
-	if (32 <= nbr && nbr <= 126)
-		std::cout << "char: '" << static_cast<char>(nbr) << "'" << std::endl;
-	else
-		std::cout << "char: Non displayable" << std::endl;
-	if (std::numeric_limits<int>::min() <= nbr && nbr <= std::numeric_limits<int>::max())
-		std::cout << "int: " << static_cast<int>(nbr) << std::endl;
-	else
-		std::cout << "int: impossible" << std::endl;
-	if (std::numeric_limits<float>::min() <= nbr && nbr <= std::numeric_limits<float>::max())
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	std::cout << "float: " << (nbr > 0 ? "+" : "") << nbr << "f" << std::endl;
+	std::cout << "double: " << (nbr > 0 ? "+" : "") <<nbr << std::endl;
+}
+
+void printFloat(double nbr)
+{if (-std::numeric_limits<float>::max() <= nbr && nbr <= std::numeric_limits<float>::max())
 		std::cout << "float: " << nbr << "f" << std::endl;
 	else
 		std::cout << "float: impossible" << std::endl;
-	if (std::numeric_limits<double>::min() <= nbr && nbr <= std::numeric_limits<double>::max())
-		std::cout << "double: " << static_cast<double>(nbr) << std::endl;
-	else
-		std::cout << "double: impossible" << std::endl;
 }
 
-void printDouble(double nbr)
-{
-	std::cout << "input type was detected as double" << std::endl;
-	if (32 <= nbr && nbr <= 126)
-		std::cout << "char: '" << static_cast<char>(nbr) << "'" << std::endl;
-	else
-		std::cout << "char: Non displayable" << std::endl;
-	if (std::numeric_limits<int>::min() <= nbr && nbr <= std::numeric_limits<int>::max())
-		std::cout << "int: " << static_cast<int>(nbr) << std::endl;
-	else
-		std::cout << "int: impossible" << std::endl;
-	if (std::numeric_limits<float>::min() <= nbr && nbr <= std::numeric_limits<float>::max())
-		std::cout << "float: " << static_cast<float>(nbr) << "f" << std::endl;
-	else
-		std::cout << "float: impossible" << std::endl;
-	if (std::numeric_limits<double>::min() <= nbr && nbr <= std::numeric_limits<double>::max())
+void printDouble(long double nbr)
+{if (-std::numeric_limits<double>::max() <= nbr && nbr <= std::numeric_limits<double>::max())
 		std::cout << "double: " << nbr << std::endl;
 	else
 		std::cout << "double: impossible" << std::endl;
-}
-
-void printIrrational(std::string input, e_type type)
-{
-	if (type == _float)
-		std::cout << "input type was detected as float" << std::endl;
-	else
-		std::cout << "input type was detected as double" << std::endl;
-	std::cout << "char: impossible" << std::endl;
-	std::cout << "int: impossible" << std::endl;
-	if (type == _float)
-	{
-		std::cout << "float: " << input << std::endl;
-		std::cout << "double: " << input.substr(0, input.length() - 1) << std::endl;
-	}
-	else
-	{
-		std::cout << "float: " << input << "f" << std::endl;
-		std::cout << "double: " << input << std::endl;
-	}
 }
 
 void ScalarConverter::convert(void)
@@ -211,23 +154,51 @@ void ScalarConverter::convert(void)
 	switch (get_type(this->_input))
 	{
 		case (_char):
-			printChar(this->_input.at(0));
+		{
+			char tmp = this->_input.at(0);
+			printChar(tmp);
+			printInt(static_cast<int>(tmp));
+			printFloat(static_cast<float>(tmp));
+			printDouble(static_cast<double>(tmp));
 			break;
+		}
 		case (_int):
-			printInt(atol(this->_input.c_str()));
+		{
+			long double tmp = atof(this->_input.c_str());
+			printChar(static_cast<char>(tmp));
+			printInt(static_cast<long int>(tmp));
+			printFloat(static_cast<double>(tmp));
+			printDouble(tmp);
 			break;
+		}
 		case (_float):
-			if (isIrrational(this->_input))
-				printIrrational(this->_input, _float);
+		{
+			long double tmp = atof(this->_input.c_str());
+			if (isIrrational(tmp))
+				printIrrational(tmp);
 			else
-				printFloat(atof(this->_input.c_str()));
+			{
+				printChar(static_cast<char>(tmp));
+				printInt(static_cast<long int>(tmp));
+				printFloat(static_cast<double>(tmp));
+				printDouble(tmp);
+			}
 			break;
+		}
 		case (_double):
-			if (isIrrational(this->_input))
-				printIrrational(this->_input, _double);
+		{
+			long double tmp = atof(this->_input.c_str());
+			if (isIrrational(tmp))
+				printIrrational(tmp);
 			else
-				printDouble(atof(this->_input.c_str()));
+			{
+				printChar(static_cast<char>(tmp));
+				printInt(static_cast<long int>(tmp));
+				printFloat(static_cast<double>(tmp));
+				printDouble(tmp);
+			}
 			break;
+		}
 		default:
 			std::cout << "Something went wrong" << std::endl;
 	}

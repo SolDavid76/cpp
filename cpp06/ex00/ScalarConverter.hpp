@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 16:03:51 by djanusz           #+#    #+#             */
-/*   Updated: 2023/10/27 20:21:53 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/11/03 12:40:43 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <limits>
 # include <string>
 # include <iostream>
+# include <iomanip>
+# include <cmath>
 
 enum e_type {_error, _irrational, _char, _int, _float, _double};
 
