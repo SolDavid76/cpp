@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:12:37 by djanusz           #+#    #+#             */
-/*   Updated: 2023/11/03 16:04:49 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/11/09 15:24:54 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,14 @@ Array<T>::Array(unsigned int n)
 {
 	this->_Array = new T[n];
 	for (unsigned int i = 0; i < n; i++)
-		this->_Array[i] = 0;
+		this->_Array[i] = T();
 	this->_size = n;
 }
 
 template<typename T>
 Array<T>::Array(Array const& src)
 {
-	this->_Array = new T[0];
+	this->_Array = NULL;
 	*this = src;
 }
 
@@ -82,8 +82,7 @@ T& Array<T>::operator[](unsigned int index)
 {
 	if (index > this->size() - 1)
 		throw std::out_of_range("out of range");
-	else
-		return (this->_Array[index]);
+	return (this->_Array[index]);
 }
 
 template<typename T>
