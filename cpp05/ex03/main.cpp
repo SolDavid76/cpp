@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 00:16:26 by djanusz           #+#    #+#             */
-/*   Updated: 2023/10/31 12:35:22 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/11/14 11:32:25 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int main(void)
     std::cout << *form << std::endl;
     bob.signForm(*form);
     bob.executeForm(*form);
-	form = randomIntern.makeForm("presidential pardon", "Bob");
 	delete form;
 
 	return (0);
