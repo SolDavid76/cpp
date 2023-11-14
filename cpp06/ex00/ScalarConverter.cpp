@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 16:11:02 by djanusz           #+#    #+#             */
-/*   Updated: 2023/11/14 16:36:13 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/11/14 17:25:31 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,7 +228,6 @@ void ScalarConverter::convert(std::string input)
 		}
 		case (_int):
 		{
-			std::cout << "coucou" << std::endl;
 			this->_i = atoi(input.c_str());
 			this->_c = static_cast<char>(this->_i);
 			this->_f = static_cast<float>(this->_i);
