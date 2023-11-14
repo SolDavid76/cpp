@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 16:03:51 by djanusz           #+#    #+#             */
-/*   Updated: 2023/11/03 12:40:43 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/11/14 16:03:38 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,23 @@ enum e_type {_error, _irrational, _char, _int, _float, _double};
 class ScalarConverter
 {
 	public:
-		ScalarConverter(std::string input);
+		ScalarConverter();
 		ScalarConverter(ScalarConverter const& src);
 		ScalarConverter& operator=(ScalarConverter const& src);
 		~ScalarConverter(void);
 
-		void convert(void);
+		void printChar(void);
+		void printInt(void);
+		void printIrrational(void);
+		void printFloat(void);
+		void printDouble(void);
+		void printAll(void);
+		void convert(std::string input);
 	private:
-		std::string _input;
+		char _c;
+		long _i;
+		float _f;
+		double _d;
 };
 
 #endif
