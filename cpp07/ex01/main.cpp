@@ -6,20 +6,20 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 13:35:51 by djanusz           #+#    #+#             */
-/*   Updated: 2023/11/03 13:56:31 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/11/21 11:01:15 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
 
-int square(int x)
+void square(int& x)
 {
-	return (x * x);
+	x *= x;
 }
 
-double square(double x)
+void square(double& x)
 {
-	return (x * x);
+	x *= x;
 }
 
 int main(void)
