@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 13:35:48 by djanusz           #+#    #+#             */
-/*   Updated: 2023/11/23 12:46:09 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/11/24 16:27:22 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,15 @@
 # include <iostream>
 # include <cstddef>
 
-template<typename T, template F>
-void iter(T* array, size_t len, void(*f)(F&))
+template<typename T>
+void iter(T* array, size_t len, void(*f)(T const&))
+{
+	for (size_t i = 0; i < len; i++)
+		f(array[i]);
+}
+
+template<typename T>
+void iter(T* array, size_t len, void(*f)(T&))
 {
 	for (size_t i = 0; i < len; i++)
 		f(array[i]);
